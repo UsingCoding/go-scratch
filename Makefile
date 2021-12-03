@@ -21,13 +21,13 @@ build: modules build-dry
 
 .PHONY: build-dry
 build-dry:
-	@docker build . \
+	@docker buildx build . \
  	--target scratch-out \
 	--output ./bin
 
 .PHONY: build-debug
 build-debug:
-	@docker build . \
+	@docker buildx build . \
 	--build-arg DEBUG=1 \
  	--target scratch-out \
 	--output ./bin
@@ -35,7 +35,7 @@ build-debug:
 
 .PHONY: modules
 modules:
-	@docker build . \
+	@docker buildx build . \
  	--target go-mod-tidy \
 	--output .
 
@@ -45,12 +45,12 @@ endif
 
 .PHONY: test
 test:
-	@docker build . \
+	@docker buildx build . \
 	--target test
 
 .PHONY: check
 check:
-	@docker build . --target lint
+	@docker buildx build . --target lint
 
 .PHONY: cache-clear
 cache-clear: ## Clear the builder cache
