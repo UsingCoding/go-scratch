@@ -10,7 +10,7 @@ import (
 // Ignored files '.' excluded from embedding, will be fixed with
 // https://github.com/golang/go/issues/43854
 
-//go:embed templates/*
+//go:embed all:templates/*
 var scratches embed.FS
 
 func EmbedFSLoader() (scratch.Loader, error) {

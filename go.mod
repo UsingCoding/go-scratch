@@ -1,6 +1,6 @@
 module scratch
 
-go 1.17
+go 1.18
 
 require (
 	github.com/liggitt/tabwriter v0.0.0-20181228230101-89fcab3d43de
